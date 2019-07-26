@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Storage Demo</title>
+</head>
+
+<body>
+    <div>
+        <h1>Web Storage</h1>
+    </div>
+    <br><br>
+    <form>
+        <label for="u_id">User ID: </label>
+        <input type="text" name="u_id" id="u_id" required>
+        <br>
+        <label for="color">Preferred Color : </label>
+        <input type="color" required id="color" name="color">
+        <br>
+        <label for="drinks">Fav Drink : </label>
+        <input type="text" list="li" id="drink" pattern="[Cc]offee|[Ll]atte">
+        <datalist id="li">
+            <option>Coffee</option>
+            <option>Latte</option>
+        </datalist>
+        <button id="btnSave">Save</button>
+        <button id="btnRemove">Remove</button>
+        <button id="btnClear">Clear</button>
+        <button id="btnGetPref">Get Preferences</button>
+    </form>
+    <hr>
+    <div id="container"></div>
+    <script>
+        if (window.localStorage) {
+            var storage = window.localStorage;
+            var btnSave = document.getElementById("btnSave");
+            var btnRemove = document.getElementById("btnRemove");
+            var btnClear = document.getElementById("btnClear");
+            var btnGetPref = document.getElementById("btnGetPref");
+            var u_id = document.getElementById("u_id");
+            var color = document.getElementById("color");
+            var drink = document.getElementById("drink");
+            var div = document.getElementById("container");
+
+            // ClearAllItem
+            btnClear.addEventListener("click", function (event) {
+                event.preventDefault();
+                storage.clear();
+            })
+            // RemoveItem
+            btnRemove.addEventListener("click", function (event) {
+                event.preventDefault();
+                var itemFound = storage.getItem(u_id.value);
+                if (itemFound) {
+                    storage.removeItem(u_id.value)
+                    console.log("[ITEM REMOVED]")
+                } else {
+                    console.log("[CAN'T LOCATE]")
+                }
+            })
+
+            // GetItem
+            btnGetPref.addEventListener("click", function (event) {
+                event.preventDefault();
+                var itemFound = storage.getItem(u_id.value);
+                if (itemFound) {
+                    console.log("[ITEM FOUND]")
+                    var item = JSON.parse(itemFound);
+                    div.style.backgroundColor = item['pref_color'];
+                    div.innerHTML = "<h2>Hello " + u_id.value + ",</h2>" +
+                        "<p>You like " + item['pref_drink'] + " a lot!</p>"
+                } else {
+                    div.innerHTML = "<p> Item Not Found</p>"
+                }
+            })
+
+            //SetItem            
+            btnSave.addEventListener("click", function (event) {
+                event.preventDefault();
+                var user_id = u_id.value;
+                var preferences = {
+                    pref_color: color.value,
+                    pref_drink: drink.value
+                }
+                storage.setItem(user_id, JSON.stringify(preferences));
+                alert("Storage updated!");
+                u_id.value = "";
+                color.value = "#000000";
+                drink.value = "";
+            })
+
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+    <style>
+        h1 {
+            color: darkgrey;
+            text-align: center;
+            font: 1.2em sans-serif bold;
+        }
+
+        form,
+        div {
+            margin: auto;
+            max-width: 300px;
+            font: 1.2em sans-serif;
+            border: 2px black dashed;
+            background-color: lightgrey;
+        }
+
+        input {
+            width: 80%;
+            margin-left: 15px;
+            padding: 10px;
+        }
+
+        button {
+            width: 90%;
+            margin-left: 15px;
+            padding: 5px;
+            background-color: darkgrey;
+        }
+    </style>
+
+    <script>
+
+        if (window.localStorage) {
+            var storage = window.localStorage;
+
+            storage.setItem("A!B@C#", "FooBar")
+            var item = storage.getItem("A!B@C#")
+
+            console.log(item);
+        }
+
+    </script>
+
+
+</body>
+
+</html>
