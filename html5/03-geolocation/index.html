@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Geolocation Demo</title>
+</head>
+<body>
+    
+    <div class="container"></div>
+
+    <button id="btnGetLocation">Get Location</button>
+
+    <style>
+    .container{
+        width: 200px;
+        border : 2px red solid;
+        height: 200px;
+        padding: 5px;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+    </style>
+
+    <script>
+        var btnGetLocation = document.getElementById("btnGetLocation")
+
+        btnGetLocation.addEventListener("click", function(event){
+            event.preventDefault();
+
+            if(navigator && navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(geo_success, geo_error)
+            }else{
+                alert("No Geolocation Found.")
+            }
+
+            function geo_success(position){
+                console.log(position.coords);
+            }
+            function geo_error(err){
+                console.log(err);
+            }
+
+        })
+    </script>
+
+
+</body>
+</html>

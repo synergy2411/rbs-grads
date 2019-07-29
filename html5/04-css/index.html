@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS Demo</title>
+
+    <style>
+        #container {
+            border: 2px red solid;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            border-radius: 20px 30px 40px 50px;
+            box-shadow: 3px 5px 8px grey;
+            transition: all 1s ease-out;
+            background-image: -webkit-linear-gradient(top, yellow, grey);
+            background-image: -ms-linear-gradient(top, yellow, grey);
+            background-image: -moz-linear-gradient(top, yellow, grey);
+            background-image: -o-linear-gradient(top, yellow, grey);
+            background-image: linear-gradient(top, yellow, grey);
+        }
+
+        #container:hover {
+            transform: rotate(7.5deg);
+            width: 300px;
+        }
+
+        #container2 {
+            border: 2px blue dashed;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            /* transition: all 3s ease-out; */
+        }
+
+        #container2:hover {
+            -webkit-animation: myanim 3s infinite;
+            animation: myanim 3s infinite;
+        }
+
+        @-webkit-keyframes myanim {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes myanim {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            background: url("./img/angular.png") no-repeat top right,
+                url("./img/angular.png") no-repeat bottom left,
+                url("./img/angular.png") no-repeat center;
+        }
+        div p{
+            column-count : 3;
+            column-rule: 2px grey dashed;
+            text-shadow: 1px 3px 0px grey;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container"></div>
+    <hr>
+    <div id="container2"></div>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sodales erat at turpis ullamcorper,
+            iaculis scelerisque sapien tristique. Donec laoreet vel tellus in porta. Proin lobortis euismod faucibus.
+            Morbi condimentum semper tincidunt. Integer a risus eget nulla feugiat efficitur ac vitae dui. Nunc ut
+            blandit quam, eu auctor nisl. Aliquam fermentum libero ex, a consequat massa laoreet quis. Vivamus eu purus
+            ac dolor porttitor euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium,
+            justo at tristique molestie, dolor urna venenatis augue, vel tempor ligula massa in justo. In fringilla
+            ligula non cursus sollicitudin. Mauris id pellentesque odio, eget congue augue. Morbi quis elit hendrerit,
+            finibus leo eget, dictum sapien. Ut blandit lobortis libero, eu aliquam sapien finibus nec.
+
+            Vestibulum ac interdum purus. Etiam in iaculis eros. Nullam in nibh tristique, sagittis elit vel, mollis
+            velit. Etiam quis arcu at elit hendrerit pellentesque sit amet nec lorem. Proin ipsum erat, sagittis eget
+            elementum quis, sodales in sapien. In euismod, quam sit amet tincidunt semper, nunc eros aliquam sapien, sit
+            amet laoreet metus diam vitae erat. Mauris scelerisque aliquet laoreet. Fusce vitae augue malesuada,
+            condimentum orci sed, bibendum tortor. Morbi quis cursus arcu. Curabitur sed iaculis tellus, at aliquam
+            metus. Curabitur sed elit id odio ornare porttitor. Maecenas iaculis magna nec augue egestas molestie.
+            Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse nisi libero, consequat eu nibh
+            eget, rutrum sodales risus.
+
+            Nunc vitae dictum urna. Morbi at libero a diam vestibulum venenatis id tincidunt urna. Sed ut dui ante.
+            Integer molestie blandit mollis. Curabitur a leo bibendum, laoreet eros a, tincidunt est. Sed eget ex elit.
+            Integer eget euismod magna. Quisque elit diam, facilisis nec porta in, euismod sodales felis. Cras eu diam
+            vitae purus ornare posuere.
+
+            Suspendisse pellentesque, mi maximus tincidunt egestas, lorem lacus dignissim justo, eget suscipit enim
+            massa eu ex. Nam bibendum nisl ut sapien convallis, id lacinia mauris scelerisque. Aenean blandit iaculis
+            maximus. Mauris efficitur neque ex, in dictum orci fringilla ut. In fermentum ipsum nisi. Praesent eget diam
+            leo. Fusce finibus placerat velit in iaculis. Suspendisse eget mollis turpis, at mattis odio. Cras massa
+            leo, malesuada vel sollicitudin at, semper dapibus neque. Aliquam ac arcu dolor. Donec efficitur dapibus
+            fringilla. Maecenas eget vulputate nulla.
+
+            Nunc et mauris lobortis, egestas magna et, ultricies arcu. Donec pellentesque eget elit ut placerat. In
+            feugiat leo aliquam, semper ipsum a, fermentum arcu. Quisque nec lacinia metus. Donec a erat leo. Nam
+            consectetur purus varius efficitur efficitur. Nulla felis felis, fermentum eu tellus ut, ornare vehicula
+            tortor. Proin eget libero cursus, ullamcorper diam vel, vulputate libero. Morbi viverra velit vitae magna
+            bibendum commodo. Morbi pulvinar in ante dignissim egestas.
+        </p>
+    </div>
+</body>
+
+</html>
